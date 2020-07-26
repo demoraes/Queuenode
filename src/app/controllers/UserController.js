@@ -1,4 +1,4 @@
-import Mail from '../lib/Mail';
+import Queue from '../lib/Queue';
 
 export default {
   async store(req, res) {
@@ -10,12 +10,7 @@ export default {
       password,
     };
 
-    await Mail.sendMail({
-      from: 'Queue Test <queue@queuetext.com.br>',
-      to: `${name} <${email}>`,
-      subject: 'Cadastro de usuário',
-      html: `Olá,${name}, bem-vindo ao sistema de filas da Rocketseat :D`
-    });
+    // Adicionar job RegistraionMail na fila
 
     return res.json(user);
   }

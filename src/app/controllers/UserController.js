@@ -12,6 +12,8 @@ export default {
 
     // Adicionar job RegistraionMail na fila
 
+    await Queue.add('RegistrationMail', { user });
+
     return res.json(user);
   }
 }
